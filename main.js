@@ -1,13 +1,13 @@
 /**
- * JFV Motomecánica - Main JavaScript File
- * This file contains all the scripts for enhancing the user experience on the website
- * Author: JFV Motomecánica
- * Last Updated: April 16, 2025
+ * JFV Motomecánica - Archivo JavaScript Principal
+ * Este archivo contiene todos los scripts para mejorar la experiencia del usuario en el sitio web
+ * Autor: JFV Motomecánica
+ * Última actualización: 16 de abril de 2025
  */
 
-// Execute code when the DOM is fully loaded
+// Ejecuta el código cuando el DOM está completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all components
+    // Inicializa todos los componentes
     initNavigation();
     initFormValidation();
     initServiceCardsEffects();
@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * Navigation functionality
- * Handles smooth scrolling for anchor links
+ * Funcionalidad de navegación
+ * Maneja el desplazamiento suave para los enlaces de anclaje
  */
 function initNavigation() {
     const navLinks = document.querySelectorAll('nav ul li a');
@@ -28,14 +28,14 @@ function initNavigation() {
         link.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
             
-            // Apply smooth scroll only for links to sections on the same page
+            // Aplica desplazamiento suave solo para enlaces a secciones en la misma página
             if(targetId && targetId.startsWith('#')) {
                 e.preventDefault();
                 if(targetId === '#') return;
             
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
-                    // Scroll smoothly with 100px offset from the top
+                    // Desplaza suavemente con un offset de 100px desde la parte superior
                     window.scrollTo({
                         top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
@@ -47,12 +47,12 @@ function initNavigation() {
 }
 
 /**
- * Form validation
- * Validates contact form fields before submission
+ * Validación de formularios
+ * Valida los campos del formulario de contacto antes del envío
  */
 function initFormValidation() {
     const contactForm = document.querySelector('form#contact-form');
-    if(!contactForm) return; // Exit if no form exists on the page
+    if(!contactForm) return; // Sale si no existe un formulario en la página
     
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -63,11 +63,11 @@ function initFormValidation() {
         const asunto = document.getElementById('asunto');
         let isValid = true;
         
-        // Clear previous error messages
+        // Elimina mensajes de error anteriores
         document.querySelectorAll('.error-message').forEach(el => el.remove());
         document.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
         
-        // Validate fields
+        // Valida los campos
         if(!nombre || !nombre.value.trim()) {
             showError(nombre, 'El nombre es obligatorio');
             isValid = false;
@@ -91,13 +91,13 @@ function initFormValidation() {
             isValid = false;
         }
         
-        // If form is valid, show success message
+        // Si el formulario es válido, muestra un mensaje de éxito
         if(isValid) {
             showSuccessMessage(contactForm);
         }
     });
     
-    // Helper function to display error messages
+    // Función auxiliar para mostrar mensajes de error
     function showError(input, message) {
         if(!input) return;
         
@@ -107,7 +107,7 @@ function initFormValidation() {
         input.parentNode.insertBefore(errorDiv, input.nextSibling);
         input.classList.add('input-error');
         
-        // Remove error when user starts typing
+        // Elimina el error cuando el usuario comienza a escribir
         input.addEventListener('input', function() {
             this.classList.remove('input-error');
             const nextSibling = this.nextSibling;
@@ -117,38 +117,38 @@ function initFormValidation() {
         }, {once: true});
     }
     
-    // Helper function to display success message
+    // Función auxiliar para mostrar mensaje de éxito
     function showSuccessMessage(form) {
-        // Check if we're using Bootstrap validation or custom validation
+        // Verifica si estamos usando validación de Bootstrap o personalizada
         const formSuccess = document.getElementById('form-success');
         
         if(formSuccess) {
-            // For Bootstrap form
+            // Para formulario Bootstrap
             formSuccess.classList.remove('d-none');
             form.reset();
             
-            // Hide message after 5 seconds
+            // Oculta el mensaje después de 5 segundos
             setTimeout(() => {
                 formSuccess.classList.add('d-none');
             }, 5000);
         } else {
-            // For custom form
+            // Para formulario personalizado
             const successMessage = document.createElement('div');
             successMessage.classList.add('success-message');
             successMessage.textContent = '¡Mensaje enviado con éxito! Te contactaremos pronto.';
             form.appendChild(successMessage);
             
-            // Reset form
+            // Reinicia formulario
             form.reset();
             
-            // Remove message after 5 seconds
+            // Elimina mensaje después de 5 segundos
             setTimeout(() => {
                 successMessage.remove();
             }, 5000);
         }
     }
     
-    // Helper function to validate email format
+    // Función auxiliar para validar formato de email
     function isValidEmail(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
@@ -156,8 +156,8 @@ function initFormValidation() {
 }
 
 /**
- * Service cards effects
- * Adds hover effects to service cards
+ * Efectos para tarjetas de servicios
+ * Añade efectos al pasar el mouse sobre las tarjetas de servicios
  */
 function initServiceCardsEffects() {
     const serviceCards = document.querySelectorAll('.servicio, .service-card');
@@ -172,8 +172,8 @@ function initServiceCardsEffects() {
 }
 
 /**
- * Lazy loading for images
- * Loads images only when they become visible in the viewport
+ * Carga diferida de imágenes
+ * Carga las imágenes solo cuando se vuelven visibles en la pantalla
  */
 function initLazyLoading() {
     if('IntersectionObserver' in window) {
@@ -196,8 +196,8 @@ function initLazyLoading() {
 }
 
 /**
- * Scroll animations
- * Activates animations when elements appear in the viewport
+ * Animaciones al desplazar
+ * Activa animaciones cuando los elementos aparecen en la pantalla
  */
 function initScrollAnimations() {
     if('IntersectionObserver' in window) {
@@ -212,7 +212,7 @@ function initScrollAnimations() {
                 }
             });
         }, {
-            threshold: 0.2 // Activate when at least 20% of element is visible
+            threshold: 0.2 // Activa cuando al menos el 20% del elemento es visible
         });
         
         elementsToAnimate.forEach(element => animationObserver.observe(element));
@@ -220,11 +220,11 @@ function initScrollAnimations() {
 }
 
 /**
- * Back to top button
- * Creates a button that appears when scrolling and allows returning to the top of the page
+ * Botón para volver arriba
+ * Crea un botón que aparece al desplazarse y permite volver al inicio de la página
  */
 function createScrollTopButton() {
-    // Check if button already exists
+    // Verifica si el botón ya existe
     if(document.querySelector('.scroll-top-btn')) return;
     
     const button = document.createElement('button');
@@ -233,7 +233,7 @@ function createScrollTopButton() {
     button.setAttribute('aria-label', 'Volver arriba');
     document.body.appendChild(button);
     
-    // Show/hide the button based on scroll position
+    // Muestra/oculta el botón según la posición de desplazamiento
     window.addEventListener('scroll', () => {
         if(window.scrollY > 300) {
             button.classList.add('show');
@@ -242,7 +242,7 @@ function createScrollTopButton() {
         }
     });
     
-    // Scroll smoothly to the top when clicked
+    // Desplaza suavemente hacia arriba al hacer clic
     button.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
@@ -252,8 +252,8 @@ function createScrollTopButton() {
 }
 
 /**
- * Mobile menu functionality
- * Handles the hamburger menu for mobile devices
+ * Funcionalidad del menú móvil
+ * Maneja el menú hamburguesa para dispositivos móviles
  */
 function initMobileMenu() {
     const menuToggle = document.getElementById('menu-toggle');
@@ -261,13 +261,13 @@ function initMobileMenu() {
     
     if(!menuToggle || !mainNav) return;
     
-    // Toggle menu on hamburger button click
+    // Alterna el menú al hacer clic en el botón hamburguesa
     menuToggle.addEventListener('click', function() {
         this.classList.toggle('active');
         mainNav.classList.toggle('show');
     });
     
-    // Close menu when clicking on a menu item (on mobile)
+    // Cierra el menú al hacer clic en un elemento del menú (en móvil)
     const navLinks = document.querySelectorAll('#main-nav a');
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
@@ -278,7 +278,7 @@ function initMobileMenu() {
         });
     });
     
-    // Adjust menu when window is resized
+    // Ajusta el menú cuando se cambia el tamaño de la ventana
     window.addEventListener('resize', function() {
         if(window.innerWidth > 768) {
             menuToggle.classList.remove('active');
