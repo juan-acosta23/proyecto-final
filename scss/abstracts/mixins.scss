@@ -1,0 +1,81 @@
+ // Mixins para flexbox
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Mixin para transiciones
+@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
+  transition: $property $duration $timing;
+}
+
+// Mixin para botones
+@mixin button($bg-color: $primary-color, $text-color: $white) {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: $text-color;
+  background: linear-gradient(135deg, $bg-color, lighten($bg-color, 10%));
+  border-radius: $border-radius;
+  text-decoration: none;
+  @include transition;
+  box-shadow: $box-shadow-sm;
+  
+  &:hover {
+    background: linear-gradient(135deg, darken($bg-color, 5%), $bg-color);
+    transform: scale(1.05);
+  }
+}
+
+// Mixin para secciones
+@mixin section-style {
+  background: $section-bg;
+  padding: $spacing-lg;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow-md;
+  @include transition(transform 0.3s ease, box-shadow 0.3s ease);
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $box-shadow-lg;
+  }
+}
+
+// Mixin para responsive
+@mixin responsive($breakpoint) {
+  @if $breakpoint == sm {
+    @media (max-width: $screen-sm) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (max-width: $screen-md) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (max-width: $screen-lg) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (max-width: $screen-xl) {
+      @content;
+    }
+  }
+}
+
+// Mixin para gradiente
+@mixin gradient($start-color, $end-color) {
+  background: linear-gradient(135deg, $start-color, $end-color);
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - JFV Motomecánica</title>
+    <!-- Archivos que dan estilo a la página -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+    <!-- Metaetiquetas para SEO -->
+    <meta name="description" content="Contacta con JFV Motomecánica - Tu taller de confianza para reparación y mantenimiento de motocicletas en Libertador General San Martín, Jujuy">
+    <meta name="keywords" content="contacto taller motos, servicio motocicletas, JFV Motomecánica contacto, taller motos Jujuy">
+    <meta name="author" content="JFV Motomecánica">
+    <!-- Open Graph para compartir en redes sociales -->
+    <meta property="og:title" content="Contacto - JFV Motomecánica">
+    <meta property="og:description" content="Contacta con JFV Motomecánica - Tu taller de confianza para reparación y mantenimiento de motocicletas">
+    <meta property="og:type" content="website">
+</head>
+<body>
+    <!-- Header con el título de la página y el menú de navegación -->
+    <header>
+        <h1 class="animate__animated animate__fadeIn">Contacto</h1>
+        <!-- Botón de menú para móviles -->
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="../index.html" class="animate__animated animate__fadeIn animate__delay-1s">Inicio</a></li>
+                <li><a href="nosotros.html" class="animate__animated animate__fadeIn animate__delay-2s">Nosotros</a></li>
+                <li><a href="servicios.html" class="animate__animated animate__fadeIn animate__delay-3s">Servicios</a></li>
+                <li><a href="contacto.html" class="animate__animated animate__fadeIn animate__delay-4s">Contacto</a></li>
+                <li><a href="galeria.html" class="animate__animated animate__fadeIn animate__delay-5s">Galería</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <section class="col-lg-6 slide-up">
+                    <h2>Envíanos un mensaje</h2>
+                    <!-- Formulario para que los usuarios envíen mensajes -->
+                    <form id="contact-form" class="needs-validation" novalidate>
+                        <div class="form-group mb-3">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Por favor, Ingrese su nombre.
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="email" class="form-label">Correo electrónico:</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Por favor, ingrese un correo electrónico válido.
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="telefono" class="form-label">Teléfono:</label>
+                            <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="Ej: 3886452722">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="asunto" class="form-label">Asunto:</label>
+                            <select id="asunto" name="asunto" class="form-select" required>
+                                <option value="">Selecciona un asunto</option>
+                                <option value="consulta">Consulta general</option>
+                                <option value="presupuesto">Solicitud de presupuesto</option>
+                                <option value="cita">Programar una cita</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Por favor, selecciona un asunto.
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="mensaje" class="form-label">Mensaje:</label>
+                            <textarea id="mensaje" name="mensaje" rows="6" class="form-control" required></textarea>
+                            <div class="invalid-feedback">
+                                Por favor, ingresa tu mensaje.
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                    </form>
+                    <!-- Mensaje de confirmación (oculto por defecto) -->
+                    <div class="alert alert-success mt-3 d-none" id="form-success">
+                        <i class="fas fa-check-circle"></i> Tu mensaje ha sido enviado correctamente. Nos pondremos en contacto contigo a la brevedad.
+                    </div>
+                </section>
+
+                <section class="col-lg-6 contacto-info slide-up delay-2">
+                    <h2>Información de contacto</h2>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p><strong>Dirección:</strong></p>
+                        <address>Calle Mendoza 174, Libertador General San Martín, Jujuy, Argentina</address>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <p><strong>Horarios de atención:</strong></p>
+                        <ul>
+                            <li>Lunes a viernes: 8:00 - 12:00 y 16:00 - 21:00</li>
+                            <li>Sábados: 8:00 - 13:00</li>
+                            <li>Domingos: Cerrado</li>
+                        </ul>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p><strong>Teléfono:</strong></p>
+                        <a href="tel:+543886452722" class="contact-link">+54 388 645-2722</a>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p><strong>Correo electrónico:</strong></p>
+                        <a href="mailto:juanignacioacosta23@gmail.com">juanignacioacosta23@gmail.com</a>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-comments"></i>
+                        <p><strong>Redes sociales:</strong></p>
+                        <div class="social-links">
+                            <a href="https://facebook.com/jfvmotomecanica" target="_blank" rel="noopener" class="social-link" aria-label="Facebook"><i class="fab fa-facebook"></i> Facebook</a>
+                            <a href="https://instagram.com/jfvmotomecanica" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i> Instagram</a>
+                            <a href="https://twitter.com/jfvmotomecanica" target="_blank" rel="noopener" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                        </div>
+                    </div>
+                    <div class="whatsapp-contact mt-4">
+                        <a href="https://wa.me/543886452722" target="_blank" rel="noopener" class="whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i> Contáctanos por WhatsApp
+                        </a>
+                    </div>
+                </section>
+            </div>
+
+            <section class="mapa slide-up delay-3">
+                <h2>Nuestra ubicación</h2>
+                <div class="map-container">
+                    <!-- iframe de Google Maps -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!4v1744808915385!6m8!1m7!1s2oRR4qpNx_3T7pBj_uG4qw!2m2!1d-23.83276048091106!2d-64.79273565294412!3f209.93647836905322!4f-7.28136345271561!5f0.7820865974627469" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación de JFV Motomecánica"></iframe>
+                    <p class="map-fallback">Si no puedes ver el mapa, encuéntranos en: Calle Mendoza 174, Libertador General San Martín, Jujuy.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <p>© 2025 JFV Motomecánica. Todos los derechos reservados.</p>
+                <p>Calle Mendoza 174, Libertador General San Martín, Jujuy</p>
+                <p>Tel: <a href="tel:+543886452722">388 645-2722</a></p>
+            </div>
+            <div class="footer-social">
+                <p>Síguenos en nuestras redes sociales</p>
+                <div class="social-icons">
+                    <a href="https://facebook.com/jfvmotomecanica" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com/jfvmotomecanica" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/jfvmotomecanica" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome para íconos -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Script para el menú responsive -->
+    <script src="../js/main.js"></script>
+</body>
+</html>

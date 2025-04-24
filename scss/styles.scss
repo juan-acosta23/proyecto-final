@@ -1,0 +1,331 @@
+ // Importar archivos parciales
+@import 'variables';
+@import 'mixins';
+@import 'animaciones';
+@import 'responcive';
+
+/* Estilos generales */
+body {
+    font-family: $main-font;
+    margin: 0;
+    padding: 0;
+    background-color: $background-color;
+    color: $text-color;
+    line-height: 1.6;
+}
+
+/* Header con Flexbox */
+header {
+    @include gradient($primary-color, $secondary-color);
+    color: $white;
+    padding: $spacing-lg;
+    text-align: center;
+    box-shadow: $box-shadow-sm;
+
+    h1 {
+    margin-bottom: $spacing-lg;
+    font-size: 2rem;
+    
+    @include responsive(md) {
+        font-size: 1.8rem;
+    }
+    
+    @include responsive(sm) {
+        font-size: 1.5rem;
+    }
+    }
+}
+
+nav {
+    ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: $spacing-lg;
+    flex-wrap: wrap;
+    
+    li {
+        a {
+        color: $white;
+        text-decoration: none;
+        font-weight: bold;
+        @include transition(color 0.3s);
+        
+        &:hover {
+            color: $accent-color;
+        }
+        }
+    }
+    }
+
+    @include responsive(sm) {
+    ul {
+        gap: $spacing-sm;
+    }
+    }
+}
+
+/* Contenido principal */
+main {
+    max-width: 1200px;
+    margin: $spacing-xl auto;
+    padding: $spacing-lg;
+    background: $white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow-md;
+    @include responsive(md) {
+    margin: $spacing-lg auto;
+    padding: $spacing-md;
+    }
+    
+    @include responsive(sm) {
+    margin: $spacing-md auto;
+    padding: $spacing-sm;
+    }
+}
+
+/* Sección de Inicio */
+#inicio {
+    margin-bottom: $spacing-xl;
+    
+    h2 {
+    color: $primary-color;
+    margin-bottom: $spacing-md;
+    }
+    
+    p {
+    margin-bottom: $spacing-md;
+    }
+    
+    img {
+    max-width: 100%;
+    height: auto;
+    border-radius: $border-radius;
+    margin-top: $spacing-lg;
+    box-shadow: $box-shadow-md;
+    @include transition;
+    
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: $box-shadow-lg;
+    }
+    }
+}
+
+/* Grid Container para las secciones */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $spacing-lg;
+    
+    @include responsive(sm) {
+    grid-template-columns: 1fr;
+    }
+}
+
+/* Estilos para las secciones */
+section {
+    @include section-style;
+    
+    h2 {
+    color: $primary-color;
+    margin-top: 0;
+    margin-bottom: $spacing-md;
+    }
+    
+    h3 {
+    color: darken($primary-color, 10%);
+    }
+}
+
+/* Estilos para listas */
+ul {
+    list-style: square;
+    padding-left: $spacing-lg;
+    
+    li {
+    margin-bottom: $spacing-xs;
+    }
+}
+
+/* Estilos para botones */
+.btn {
+    @include button($primary-color, $white);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: $spacing-md;
+    background: $dark;
+    color: $white;
+    margin-top: $spacing-xl;
+}
+
+/* Estilos para la página de Servicios */
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $spacing-lg;
+    padding: $spacing-lg;
+    
+    @include responsive(sm) {
+    grid-template-columns: 1fr;
+    padding: $spacing-sm;
+    }
+}
+
+.servicio {
+    background: $white;
+    border: 1px solid #ddd;
+    border-radius: $border-radius;
+    padding: $spacing-lg;
+    box-shadow: $box-shadow-md;
+    @include flex-column;
+    align-items: center;
+    text-align: center;
+    @include transition(transform 0.3s ease, box-shadow 0.3s ease);
+    
+    &:hover {
+    transform: translateY(-5px);
+    box-shadow: $box-shadow-lg;
+    }
+    
+    img {
+    max-width: 100%;
+    height: auto;
+    border-radius: $border-radius;
+    margin-bottom: $spacing-md;
+    @include transition;
+    
+    &:hover {
+        transform: scale(1.05);
+    }
+    }
+    
+    h3 {
+    margin-top: 0;
+    color: $primary-color;
+    }
+    
+    p {
+    color: $light-text;
+    flex-grow: 1; /* Hace que el párrafo ocupe el espacio restante */
+    }
+}
+
+/* Estilos para la página de Contacto */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    
+    label {
+    margin-bottom: $spacing-xs;
+    color: $primary-color;
+    font-weight: bold;
+    }
+    
+    input, textarea {
+    padding: $spacing-md;
+    margin-bottom: $spacing-lg;
+    border: 1px solid #ddd;
+    border-radius: $border-radius;
+    font-family: $main-font;
+    @include transition;
+    
+    &:focus {
+        border-color: $primary-color;
+        outline: none;
+        box-shadow: 0 0 5px rgba($primary-color, 0.5);
+    }
+    }
+    
+    button {
+    @include button($primary-color, $white);
+    border: none;
+    cursor: pointer;
+    align-self: flex-start;
+    }
+}
+
+/* Estilos para la página Nosotros */
+#nosotros {
+    h3 {
+    color: $primary-color;
+    margin-top: $spacing-lg;
+    }
+
+ul {
+    li {
+        position: relative;
+        padding-left: $spacing-md;
+    
+        &::before {
+        content: "✓";
+        color: $primary-color;
+        position: absolute;
+        left: -15px;
+        }
+    }
+}
+}
+
+/* Mediaqueries adicionales para responsividad */
+@include responsive(lg) {
+    .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@include responsive(md) {
+    header {
+    padding: $spacing-md;
+    }
+    
+    .btn {
+    padding: 10px 15px;
+    font-size: 14px;
+    }
+}
+
+@include responsive(sm) {
+    header {
+    h1 {
+        font-size: 1.5rem;
+    }
+    }
+    
+    nav ul {
+    flex-direction: column;
+    gap: $spacing-xs;
+    
+    li {
+        margin: $spacing-xs 0;
+    }
+    }
+    
+    section {
+    padding: $spacing-md;
+    }
+}
+
+/* Clases de utilidad */
+.text-center {
+    text-align: center;
+}
+
+.mt-1 { margin-top: $spacing-xs; }
+.mt-2 { margin-top: $spacing-sm; }
+.mt-3 { margin-top: $spacing-md; }
+.mt-4 { margin-top: $spacing-lg; }
+.mt-5 { margin-top: $spacing-xl; }
+
+.mb-1 { margin-bottom: $spacing-xs; }
+.mb-2 { margin-bottom: $spacing-sm; }
+.mb-3 { margin-bottom: $spacing-md; }
+.mb-4 { margin-bottom: $spacing-lg; }
+.mb-5 { margin-bottom: $spacing-xl; }
